@@ -110,3 +110,31 @@ function calcularTotal(listaVentas) {
 
 const totalVendido = calcularTotal(ventas);
 console.log(totalVendido);
+
+
+//7. Evaluación de datos con try...catch + spread
+
+function evaluar(...valores) {
+  try {
+    for (let i = 0; i < valores.length; i++) {
+      if (typeof valores[i] !== 'number') {
+        throw new Error("Error: Se encontró un valor no numérico en la lista.");
+      }
+    }
+
+    const nuevaLista = [...valores];
+    let suma = 0;
+
+    for (let i = 0; i < nuevaLista.length; i++) {
+      suma += nuevaLista[i];
+    }
+
+    return suma / nuevaLista.length;
+
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+console.log(evaluar(10, 20, 30)); 
+evaluar(10, "20", 30);
