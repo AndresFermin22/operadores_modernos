@@ -95,3 +95,18 @@ const perfilFinal = actualizarPerfil(perfilOriginal, { edad: 22 }, { ciudad: "Me
 
 console.log(perfilFinal);
 console.log(perfilOriginal);
+
+
+//6. Análisis de ventas con destructuración profunda
+const ventas = [
+  { producto: "teclado", detalles: { precio: 50, unidades: 3 } },
+  { producto: "mouse", detalles: { precio: 20, unidades: 5 } }
+];
+
+function calcularTotal(listaVentas) {
+  const [{ detalles: { precio, unidades } }] = listaVentas;
+  return precio * unidades;
+}
+
+const totalVendido = calcularTotal(ventas);
+console.log(totalVendido);
