@@ -138,3 +138,22 @@ function evaluar(...valores) {
 
 console.log(evaluar(10, 20, 30)); 
 evaluar(10, "20", 30);
+
+//8. Fusión de colecciones y validación final
+
+function fusionarColecciones(lista1, lista2) {
+  try {
+    if (!Array.isArray(lista1) || !Array.isArray(lista2)) {
+      throw new Error("Error: Uno o ambos parámetros no son arreglos válidos.");
+    }
+
+    const coleccionFinal = [...lista1, ...lista2];
+    return coleccionFinal;
+
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+console.log(fusionarColecciones([1, 2, 3], [4, 5, 6]));
+fusionarColecciones([1, 2], "hola");
